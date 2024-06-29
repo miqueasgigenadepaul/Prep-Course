@@ -7,8 +7,43 @@ archivo en cualquiera de estas carpetas, estás en el lugar equivocado.
 
 /* Arrancaremos este ejercicio por vos: */
 #ejercicioUno {
-
+    display: block;
+    text-align: center;
 }
+#ejercicioDos{
+    visibility: hidden;
+}
+#ejercicioTres{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 200px;
+}
+#ejercicioCuatro{
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+#ejercicioCinco{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+#ejercicioSiete{
+    display: flex;
+    align-items: center; /*gracias a este align items tmb queda en el medio el #elementoCuatro*/
+    flex-direction: column;
+}
+#elementoUno{
+    align-self: flex-end;
+}
+#elementoDos{
+    align-self: flex-start;
+}
+#elementoTres{
+    align-self: flex-start;
+}
+
 
 
 /* Ejercicio 2: Posicionar el header */
