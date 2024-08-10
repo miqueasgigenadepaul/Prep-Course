@@ -10,6 +10,13 @@ function deObjetoAmatriz(objeto){
       C: 3
     }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   //Escribe tu código aquí
+  let matriz = [];
+  // itero sobre las claves del objeto
+    for (let clave in objeto){
+      let claveValor = [clave, objeto[clave]]; // crear un par clave-valor.
+      matriz.push(claveValor);
+    }
+  return matriz;
 }
 
 
@@ -18,6 +25,17 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
+  let conteo = {};
+  for (let i = 0; i < string.length; i++){
+    // si existe la clave en el objeto conteo, incrementar su valor en 1
+    if (conteo[string[i]]){
+      conteo[string[i]]++;
+    } else {
+      conteo[string[i]] = 1; // aca se crea una nueva clave en el objeto conteo con el caracter actual
+      // y se le asigna el valor 1, indicando que hemos encontrado este caracter por primera vez
+    } // Esto es crucial porque sin este paso, el carácter no se registraría en el objeto y, por lo tanto, no se podría contar en futuras iteraciones.
+  }
+  return conteo; // devolver objeto
 }
 
 
@@ -26,7 +44,18 @@ function capToFront(s) {
   //al principio de la palabra.
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
-}
+  let mayusculas = '';
+  let minusculas = '';
+  for (let i = 0; i < s.length; i++){
+    if (s[i] === s[i].toUpperCase()){
+      mayusculas += s[i];
+    }
+    else if (s[i] === s[i].toLowerCase()){
+      minusculas += s[i];
+    }
+  }
+  return mayusculas + minusculas;
+} 
 
 
 function asAmirror(str) {
@@ -35,21 +64,47 @@ function asAmirror(str) {
   //pero con cada una de sus palabras invertidas, como si fuera un espejo.
   //Ej: Recibe ---> "The Henry Challenge is close!" || Devuelve ---> "ehT yrneH egnellahC si !esolc"
   //Escribe tu código aquí
+  let frase = str.split(' ');
+  let resultado = [];
+  for (let i = 0; i < frase.length; i++){
+    let fraseInvertida = frase[i].split('').reverse().join('');
+    resultado.push(fraseInvertida);
+  }
+  return resultado.join(' ');
 } 
 
 
-function capicua(numero){
-  //Escribe una función, la cual recibe un número y determina si es o no capicúa.
-  //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
-  //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
-  //Escribe tu código aquí
-}
+  function capicua(numero){
+    //Escribe una función, la cual recibe un número y determina si es o no capicúa.
+    //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
+    //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
+    //Escribe tu código aquí
+    let capicua = numero.toString();
+    let longitud = capicua.length;
+    for (let i = 0; i < longitud / 2; i++){
+      if (capicua[i] === capicua[longitud - 1 - i]){
+        return 'Es capicua';
+      }
+      else {
+        return 'No es capicua';
+      }
+    }
+  }
 
 
 function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  let nuevaCadena = ''; // Inicializo una cadena vacia
+  // iterar 
+  for (let i = 0; i < cadena.length; i++){
+    // si la letra no es a,b,c agregar ese caracter a la cadena
+    if (cadena[i] !== 'a' && cadena[i] !== 'b' && cadena[i] !== 'c'){
+      nuevaCadena += cadena[i];
+    }
+  }
+  return nuevaCadena;
 }
 
 
@@ -57,6 +112,14 @@ function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  let nuevoArray = [];
+  let masGrande = '';
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] > masGrande){
+      nuevoArray.push(arr[i]);
+    }
+  }
+  return nuevoArray;
 }
 
 
